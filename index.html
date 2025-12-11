@@ -3,54 +3,249 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Site2</title>
+    <title>Contoso Tech</title>
     <style>
+      :root {
+        --azure: #0078d4;
+        --midnight: #0f172a;
+        --steel: #1f2937;
+        --sand: #f5f5f5;
+      }
+      * {
+        box-sizing: border-box;
+      }
       body {
-        font-family: Arial, sans-serif;
-        max-width: 720px;
-        margin: 0 auto;
-        padding: 2rem;
-        line-height: 1.6;
+        margin: 0;
+        font-family: "Segoe UI", "游ゴシック体", system-ui, sans-serif;
+        background: var(--sand);
+        color: #fff;
       }
       header {
-        text-align: center;
+        background: linear-gradient(135deg, #0f172a, #0078d4);
+        padding: 1.5rem 3rem;
       }
-      section {
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav__logo {
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+      .nav__menu {
+        display: flex;
+        gap: 1.5rem;
+        font-size: 0.95rem;
+      }
+      .nav__menu a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+      }
+      .hero {
+        margin-top: 3rem;
+        padding-bottom: 3rem;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+      .hero__copy {
+        max-width: 560px;
+      }
+      .hero__copy h1 {
+        font-size: clamp(2.5rem, 4vw, 3.5rem);
+        margin: 0 0 1rem;
+      }
+      .hero__copy p {
+        font-size: 1.15rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 2rem;
+      }
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.9rem 1.8rem;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .hero__panel {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 1.25rem;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .cards {
+        margin: 3rem 0;
+        padding: 3rem;
+        background: #fff;
+        border-radius: 1.5rem;
+        box-shadow: 0 35px 60px rgba(15, 23, 42, 0.2);
+        color: var(--midnight);
+      }
+      .cards__headline {
+        font-size: 1.1rem;
+        letter-spacing: 0.08em;
++        text-transform: uppercase;
+        margin: 0;
+        color: var(--azure);
+      }
+      .cards h2 {
+        margin-top: 0.5rem;
+        font-size: 2rem;
+      }
+      .grid {
         margin-top: 2rem;
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       }
-      a {
-        color: #1a73e8;
+      .card {
+        background: #f8fafc;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        border: 1px solid #e2e8f0;
+        min-height: 200px;
+      }
+      .card h3 {
+        margin: 0 0 0.5rem;
+        color: var(--midnight);
+      }
+      .card p {
+        margin: 0;
+        color: #475569;
+        line-height: 1.5;
+      }
+      .highlight {
+        background: #0f172a;
+        padding: 2rem;
+        margin: 0 3rem 3rem;
+        border-radius: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .highlight p {
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0;
+        max-width: 680px;
+      }
+      .highlight span {
+        font-size: 0.85rem;
+        letter-spacing: 0.12em;
+        color: rgba(255, 255, 255, 0.55);
       }
       footer {
-        margin-top: 3rem;
-        text-align: center;
+        background: var(--steel);
+        padding: 2rem 3rem;
+        color: rgba(255, 255, 255, 0.8);
         font-size: 0.9rem;
-        color: #555;
+      }
+      footer a {
+        color: #fff;
+        text-decoration: none;
+      }
+      @media (max-width: 768px) {
+        header {
+          padding: 1.5rem;
+        }
+        .highlight,
+        .cards,
+        footer {
+          margin: 0;
+          border-radius: 0;
+        }
+        .cards {
+          padding: 2rem;
+        }
       }
     </style>
   </head>
   <body>
     <header>
-      <h1>My Web Site</h1>
-      <p>Welcome to my static site hosted via GitHub Pages.</p>
+      <div class="nav">
+        <div class="nav__logo">CONTOSO</div>
+        <nav class="nav__menu">
+          <a href="#cloud">Cloud</a>
+          <a href="#office">Office</a>
+          <a href="#security">Security</a>
+          <a href="#support">Support</a>
+        </nav>
+      </div>
+      <div class="hero">
+        <div class="hero__copy">
+          <h1>Empower every person and organization on the planet to achieve more.</h1>
+          <p>
+            Contoso builds the productivity and cloud solutions that help people
+            turn ideas into reality, transform the way they work together, and
+            solve the world’s toughest challenges.
+          </p>
+          <a class="cta" href="#cloud">Explore Cloud</a>
+        </div>
+        <div class="hero__panel">
+          <p style="margin-top: 0;">Live innovation</p>
+          <h2 style="margin: 0.5rem 0; font-size: 2rem;">Hybrid Work</h2>
+          <p>
+            Stay connected from anywhere with secure tools covering every device
+            and platform.
+          </p>
+        </div>
+      </div>
     </header>
-    <section>
-      <h2>About</h2>
-      <p>
-        This is a simple hand-crafted page that introduces what I do and how to reach me.
-      </p>
-    </section>
-    <section>
-      <h2>Contact</h2>
-      <p>
-        Feel free to reach out via email or visit my profile for more projects.
-      </p>
-      <p>
-        <a href="mailto:example@example.com">example@example.com</a>
-      </p>
-    </section>
+    <main>
+      <section class="cards">
+        <p class="cards__headline">Microsoft inspired</p>
+        <h2>Intelligence at the core of every experience</h2>
+        <div class="grid">
+          <article class="card" id="cloud">
+            <h3>Cloud every solution</h3>
+            <p>
+              Scale globally with trusted cloud services, flexible compute, and
+              responsible AI where you need it.
+            </p>
+          </article>
+          <article class="card" id="office">
+            <h3>Modern workplace</h3>
+            <p>
+              Combine meetings, files, and AI-powered assistants to keep teams
+              engaged and focused.
+            </p>
+          </article>
+          <article class="card" id="security">
+            <h3>Built-in security</h3>
+            <p>
+              Protect identities, data, and devices with layered defense and
+              proactive compliance tools.
+            </p>
+          </article>
+          <article class="card" id="support">
+            <h3>Trusted support</h3>
+            <p>
+              Accelerate projects with expert services and fast-response
+              deployments across industries.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section class="highlight">
+        <span>CREATING BREAKTHROUGHS</span>
+        <h2 style="margin: 0 0 0.5rem;">Innovate responsibly</h2>
+        <p>
+          Contoso is committed to sustainable computing, accessibility, and the
+          ethical use of AI. Partner with us to deliver impactful outcomes
+          without sacrificing trust.
+        </p>
+      </section>
+    </main>
     <footer>
-      <p>&copy; 2024 My Site</p>
+      <p>
+        © 2024 Contoso. See our <a href="#cloud">Cloud</a> and
+        <a href="#security">Security</a> commitment statements.
+      </p>
     </footer>
   </body>
 </html>
